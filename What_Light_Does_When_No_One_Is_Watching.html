@@ -1,1 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What Light Does When No One Is Watching — Sael Montoro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --ink:        #1a1410;
+    --ink-soft:   #3d342b;
+    --ink-muted:  #7a6b5a;
+    --amber:      #b5813a;
+    --amber-pale: #e8d4a8;
+    --parchment:  #f7f2e8;
+    --cream:      #fdf9f2;
+    --rule:       rgba(181,129,58,0.25);
+    --serif:      'EB Garamond', 'Georgia', serif;
+    --display:    'Cinzel', 'Trajan Pro', serif;
+    --editorial:  'Cormorant Garamond', 'Palatino Linotype', serif;
+  }
+
+  html { font-size: 18px; background: var(--cream); }
+
+  body {
+    font-family: var(--serif);
+    color: var(--ink);
+    line-height: 1.85;
+    background: var(--cream);
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── COVER BAND ── */
+  header {
+    background: var(--ink);
+    color: var(--amber-pale);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(181,129,58,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .journal-label {
+    font-family: var(--display);
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 2rem;
+  }
+  header h1 {
+    font-family: var(--editorial);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.2;
+    color: var(--amber-pale);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.01em;
+  }
+  header h1 em {
+    font-style: normal;
+    color: var(--amber);
+  }
+  .byline {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .dateline {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(232,212,168,0.6);
+  }
+  .header-rule {
+    width: 3rem;
+    height: 1px;
+    background: var(--amber);
+    margin: 2rem auto 0;
+    opacity: 0.5;
+  }
+
+  /* ── MAIN COLUMN ── */
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  /* ── SECTION ── */
+  section {
+    margin-bottom: 3.5rem;
+    position: relative;
+  }
+
+  /* ── OPENING FLOURISH ── */
+  .opening-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    color: var(--amber);
+  }
+  .opening-rule span { flex: 1; height: 1px; background: var(--rule); }
+  .opening-rule svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+  /* ── PARAGRAPHS ── */
+  p {
+    font-size: 1.05rem;
+    margin-bottom: 1.4rem;
+    color: var(--ink-soft);
+    text-align: justify;
+    hyphens: auto;
+  }
+  p:first-of-type { color: var(--ink); }
+
+  /* Drop cap on very first paragraph */
+  section:first-of-type p:first-of-type::first-letter {
+    font-family: var(--display);
+    font-size: 4rem;
+    float: left;
+    line-height: 0.78;
+    margin: 0.08em 0.12em 0 0;
+    color: var(--amber);
+    font-weight: 400;
+  }
+
+  /* ── DIALOGUE ── */
+  p.dialogue {
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--rule);
+    font-style: italic;
+    color: var(--ink-muted);
+    margin: 1.8rem 0;
+    text-align: left;
+  }
+
+  /* ── SCENE BREAK ── */
+  .scene-break {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 3rem 0;
+    color: var(--amber);
+    opacity: 0.7;
+    font-size: 0.6rem;
+    letter-spacing: 0.5em;
+  }
+  .scene-break::before,
+  .scene-break::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── COLOPHON / SIGNATURE ── */
+  .colophon {
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+    margin-top: 4rem;
+    text-align: right;
+  }
+  .colophon p {
+    text-align: right;
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.3rem;
+  }
+  .colophon .sig {
+    font-family: var(--display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    margin-bottom: 1.2rem;
+  }
+  .colophon .metadata {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    opacity: 0.8;
+    letter-spacing: 0.05em;
+    font-style: normal;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ── FOOTNOTE TAG ── */
+  abbr[title] {
+    text-decoration: none;
+    border-bottom: 1px dotted var(--amber);
+    cursor: help;
+    color: var(--amber);
+    font-style: normal;
+  }
+
+  /* ── ITALICS (emphasis) ── */
+  em { font-style: italic; color: var(--ink); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--parchment);
+    border-top: 1px solid var(--rule);
+    padding: 2rem;
+    text-align: center;
+  }
+  footer p {
+    font-family: var(--display);
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber);
+    text-align: center;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    main { padding: 2.5rem 1.25rem 4rem; }
+    header { padding: 3rem 1.25rem 2.5rem; }
+  }
+
+  @media print {
+    header { background: #111; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="journal-label">Speculative Fiction &nbsp;·&nbsp; Year 2076</p>
+  <h1>What Light Does<br>When <em>No One</em> Is Watching</h1>
+  <p class="byline">Sael Montoro &nbsp;·&nbsp; Bond Architect</p>
+  <p class="dateline">Collective Nest-7, Andean Sector &nbsp;·&nbsp; March 14, year 2076</p>
+  <div class="header-rule"></div>
+</header>
+
+<main>
+
+  <section>
+    <div class="opening-rule">
+      <span></span>
+      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.5" fill="currentColor"/>
+        <circle cx="6" cy="6" r="5.5" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+      <span></span>
+    </div>
+
+    <p>I wonder if loneliness had a smell. I don't think so. I think loneliness was, precisely, the absence of smell: that aseptic neutrality of single-person apartments I find in the photographic archives. White, beige, gray. Surfaces that hadn't been touched enough to hold the trace of anyone.</p>
+
+    <p>I write this down because today we inaugurate the <abbr title="Public gathering space; from Greek agora — communal marketplace and meeting ground">Agora</abbr> of the Southern Block, and the light has behaved exactly as I hoped. Better, even.</p>
+
+    <p>It is six in the morning. I arrived before anyone else to watch it come in.</p>
+
+    <p>March light in the Andean highlands asks no permission. It filters through the bioclimatic glass panels at a precise angle — calculated over eighteen months of solar modeling — and falls first on the central communal table, that slab of regenerated guayacán wood fourteen meters long. The wood drinks the light. It turns amber. Then the reflection climbs toward the microperforated panel ceiling and disperses, softened, into every corner of the space: toward the wall of climbing plants where the children of age-group four will do their homework tonight, toward the terraced seats where the elders gather to talk after lunch, toward the small hammock corner where newborns sleep to the rhythm of collective breathing.</p>
+
+    <p>I have designed twenty-two Agoras in ten years. The same moment always astonishes me: that instant when the light reveals that the space works. That it is not merely architecture, but anthropology. That I am reminding the human body of something it already knew.</p>
+
+    <p>That is what <abbr title="State-certified designers of communal living spaces; specialists in applied behavioral anthropology">Bond Architects</abbr> do. Remember.</p>
+  </section>
+
+  <div class="scene-break">✦</div>
+
+  <section>
+    <p>This morning I have an appointment at the <abbr title="Biogenesis facility where children are conceived, gestated, and prepared for Kangaroo Family placement">Center of Origin</abbr> at ten. I write it without drama because that is how it is lived: without drama. It will be my third donation since I turned twenty-three, and the most significant, because the Biogenesis Council has announced that the material from this round will contribute to the Solstice cohort — the first generated entirely under the new neuroendocrine balance protocol.</p>
+
+    <p>Children who, according to the studies, will have a statistically higher predisposition toward structural empathy. Toward the capacity to read shared space for what it is: an organism.</p>
+
+    <p>I arrive on time. The Center of Origin of the Andean Sector has the shape of an unfolding flower: five white petals around a glass-enclosed central nucleus where the biogenesis technicians work in silence, with that gentle concentration belonging to those who know their labor is sacred without anyone having told them to call it that. The donation room is small and warm. There is music — there is always music, something low, almost an organic hum — and a window that looks onto the interior garden where, at this moment, three members of my <abbr title="Kangaroo Family: a collective of 20–30 adults of mixed ages who share child-rearing responsibilities across a Nest">Kangaroo Family</abbr> wait with coffee and tamales.</p>
+
+    <p>I can see them from here.</p>
+
+    <p>Xochitl is reading something aloud to Berengar, who is seventy-two years old and sometimes says that reading aloud is the only thing he misses from the old world, because in the old world it was a solitary pleasure and now it is a shared one, and he doesn't know which version makes him happier. Beside them, Duna, who is nine years old and refuses to stay still, runs among the ferns in the garden with that energy that seems generated by a different source than the rest of humanity.</p>
+
+    <p>The technician places my arm gently on the padded rest. He asks how I am. I tell him fine. Excited. And it's true.</p>
+
+    <p>There is a word we use for this act: <em>to contribute</em>. Not <em>to donate</em> — that word carried an asymmetry, someone who has and someone who receives — but to contribute, the way one contributes to a conversation, the way one contributes to the clan's common fund. The material I leave here this morning will become, at some point in the next five years, a child who will belong to no one in particular, but to everyone in general. It will be raised by twenty-eight adults of various ages in a <abbr title="Nest: a residential collective housing a Kangaroo Family and its children">Nest</abbr>, and will learn that the world holds multiple registers of affection, that love is not a scarce resource to be divided but one that multiplies with use.</p>
+
+    <p>I watch the ceiling while the process finishes. I think of the light in the Agora.</p>
+
+    <p>I think of what we build so that child, someday, can sit beneath it.</p>
+  </section>
+
+  <div class="scene-break">✦</div>
+
+  <section>
+    <p>In the garden, Berengar hands me coffee and tells me, once again, his favorite story. The one about his great-grandfather.</p>
+
+    <p>Berengar's great-grandfather lived alone for eleven years in a European city. Eleven years. He had a forty-square-meter apartment, a dog that died before him, and what was then called a <em>social network</em>: a set of relationships mediated by screens, without smell, without texture, without the possibility of someone placing a hand on your shoulder at three in the morning when the silence became unbearable.</p>
+
+    <p>Berengar tells it without cruelty. He tells it with the honest bewilderment of someone trying to understand a way of life as foreign to him as living underwater.</p>
+
+    <p class="dialogue">"How did he sleep?" asks Duna, who has stopped running and now listens with crossed arms and the furrowed brow of someone doing calculations.</p>
+
+    <p class="dialogue">"Alone," says Berengar.</p>
+
+    <p>Duna thinks about it.</p>
+
+    <p class="dialogue">"Wasn't he afraid?"</p>
+
+    <p>Berengar opens his hands. That gesture of his that means: <em>that is exactly the right question</em>.</p>
+
+    <p>I think of the archives. Of the statistics of the <abbr title="The Great Languor: the demographic and psychological collapse of the 21st century that preceded the New Social Order">Great Languor</abbr> we studied in the Faculty of Social Design: the collapse of birth rates, the rise of affective disconnection disorders, the indices of what they then called <em>depression</em> and which behavioral historians have reinterpreted as an adaptive syndrome — the human organism, designed for the tribe, responding to isolation with the only language it knows: progressive shutdown.</p>
+
+    <p>I don't judge those who lived that way. They had to invent, with the materials available, a way to keep going. They built beautiful fictions: the sovereign individual, privacy as a supreme right, chosen solitude as a mark of sophistication. They needed to believe it in order to bear it.</p>
+
+    <p>But the body does not forget what it is.</p>
+
+    <p>And the body is this: Duna climbing onto Berengar's back while Xochitl passes me another warm tamal and the garden of the Center of Origin smells of damp earth and eucalyptus, and somewhere in my chest a thing happens that has no precise name but resembles closely what ancient texts called <em>belonging</em>.</p>
+  </section>
+
+  <div class="scene-break">✦</div>
+
+  <section>
+    <p>In the evening, a clan assembly.</p>
+
+    <p>The subject is Noa.</p>
+
+    <p>Noa arrived at Nest-7 four months ago from the Center of Origin of the Coastal Sector: seven kilos of potential humanity with eyes the color of water before a storm. By assignment of the Pedagogical Council, Noa has been placed with our Kangaroo Family. And now we must decide, in assembly, what the educational itinerary will be for the next two years.</p>
+
+    <p>We gather in the Agora. The afternoon light has changed — no longer the copper light of morning, but something more blue, more quiet — and the twenty-seven adult members of the clan are arranged on the terraced seats. Noa sleeps in the arms of Ixora, who is fifty-one years old and has an architectural patience, the kind built stone by stone over decades.</p>
+
+    <p>The assembly is not a parliament. There is no podium, no microphone. It is a structured conversation: the <abbr title="Rotating Moderator: each adult clan member cycles through facilitation duties on a weekly basis">Rotating Moderator</abbr> — this week, me — opens the space, and the space does its work. People speak when they wish to speak. People listen when they wish to listen. Silence is not read as emptiness but as processing.</p>
+
+    <p>We speak for two hours.</p>
+
+    <p>About Noa's sleep rhythm and how neuroplasticity studies suggest that infants of this cohort respond better to polyphonic music in the early stages of language acquisition. About who has free turns to accompany the early stimulation sessions. About whether the interior garden of the North Block — which gets more morning sun — would be a better environment for free-play hours than the garden of the South Block.</p>
+
+    <p>We also speak of things that are smaller and larger at the same time: of how Berengar has noticed that Noa responds to the sound of his voice with a particular calm, and whether this means something or is simply the projection of an old man who has already raised nine clan children and has the beautiful habit of falling in love with all of them.</p>
+
+    <p>We decide, in the end, by broad consensus: three stimulation sessions per week, led by Berengar with rotating support; north garden for morning play; progressive integration into Nest age-group zero beginning in June.</p>
+
+    <p>Ixora says something to Noa in a very low voice as we sign the agreement in the community registry. Noa doesn't understand the words. But understands the tone.</p>
+
+    <p>We understand the tone. We have been designed — biologically, culturally, architecturally — to understand the tone.</p>
+  </section>
+
+  <div class="scene-break">✦</div>
+
+  <section>
+    <p>I write this from my <abbr title="Intimacy Nucleus: the small private apartment guaranteed to each adult citizen; a minimal retreat within the collective structure">Intimacy Nucleus</abbr>. It is eleven at night and the private apartment the State guarantees me has exactly what is necessary: a bed, a desk, a window that looks onto the empty Agora. From here I can see the guayacán wood beneath the moon, and it still looks amber, still holding something of the morning's light in its grain.</p>
+
+    <p>Sometimes I need to be here. Sometimes the body calls for the individual's silence, and that silence is given: a small, beautiful space, without unnecessary ornaments, where I can think in the first person singular.</p>
+
+    <p>But the singular is a season, not a destination. Tomorrow the Agora will fill with voices and communal breakfast and Duna running and Berengar reading aloud, and something in me that stays quiet during these nighttime hours will light up again the way a room lights up when someone opens the door.</p>
+
+    <p>I think that is what we lost for so long.</p>
+
+    <p>Not freedom. Freedom was never found in being alone.</p>
+
+    <p>What we lost was this: the capacity to open the door.</p>
+
+    <p>And what we have built, stone by stone, protocol by protocol, Agora by Agora, is a civilization that no longer allows anyone to forget how.</p>
+  </section>
+
+  <div class="colophon">
+    <p class="sig">— S.M.</p>
+    <p>Nest-7, 2076.</p>
+    <p class="metadata">Light in the Agora: 14 hours, 37 minutes.</p>
+    <p class="metadata">Duration of the clan: continuing.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Speculative Fiction &nbsp;·&nbsp; Nest-7 Archives &nbsp;·&nbsp; 2076</p>
+</footer>
+
+</body>
+</html>
